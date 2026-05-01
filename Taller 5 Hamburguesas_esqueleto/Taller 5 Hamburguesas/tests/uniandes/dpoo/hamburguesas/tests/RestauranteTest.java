@@ -24,15 +24,9 @@ import uniandes.dpoo.hamburguesas.mundo.Restaurante;
 
 public class RestauranteTest {
 
-    // -------------------------------------------------------
-    // TempDir para archivos de prueba y facturas
-    // -------------------------------------------------------
     @TempDir
     File tempDir;
- 
-    // -------------------------------------------------------
-    // Atributos
-    // -------------------------------------------------------
+
  
     private Restaurante restauranteVacio;
     private Restaurante restauranteCargado;
@@ -42,9 +36,7 @@ public class RestauranteTest {
     private File archivoMenu;
     private File archivoCombos;
  
-    // -------------------------------------------------------
     // Configuración
-    // -------------------------------------------------------
  
     @BeforeEach
     void setUp( ) throws Exception
@@ -52,7 +44,7 @@ public class RestauranteTest {
         restauranteVacio  = new Restaurante( );
         restauranteCargado = new Restaurante( );
  
-        // ---- ingredientes_test.txt ----
+        // ingredientes_test.txt 
         archivoIngredientes = new File( tempDir, "ingredientes_test.txt" );
         try ( PrintWriter pw = new PrintWriter( archivoIngredientes ) )
         {
@@ -61,7 +53,7 @@ public class RestauranteTest {
             pw.println( "cebolla;800" );
         }
  
-        // ---- menu_test.txt ----
+        // menu_test.txt 
         archivoMenu = new File( tempDir, "menu_test.txt" );
         try ( PrintWriter pw = new PrintWriter( archivoMenu ) )
         {
@@ -70,7 +62,7 @@ public class RestauranteTest {
             pw.println( "gaseosa;5000" );
         }
  
-        // ---- combos_test.txt ----
+        // combos_test.txt 
         // Formato: nombre;descuento%;producto1;producto2
         archivoCombos = new File( tempDir, "combos_test.txt" );
         try ( PrintWriter pw = new PrintWriter( archivoCombos ) )
@@ -89,9 +81,7 @@ public class RestauranteTest {
         restauranteCargado = null;
     }
  
-    // -------------------------------------------------------
     // Estado inicial
-    // -------------------------------------------------------
  
     @Test
     void testRestauranteVacioNoPedidos( )
@@ -128,9 +118,7 @@ public class RestauranteTest {
                 "Un restaurante recién creado no debe tener un pedido en curso." );
     }
  
-    // -------------------------------------------------------
     // cargarInformacionRestaurante — casos válidos
-    // -------------------------------------------------------
  
     @Test
     void testCargaIngredientesCorrecta( )
@@ -182,10 +170,8 @@ public class RestauranteTest {
                 restauranteCargado.getMenuCombos( ).get( 0 ).getNombre( ),
                 "El nombre del combo cargado no es el esperado." );
     }
- 
-    // -------------------------------------------------------
+    
     // cargarInformacionRestaurante — excepciones
-    // -------------------------------------------------------
  
     @Test
     void testCargaIngredientesRepetidosLanzaExcepcion( ) throws IOException
@@ -256,9 +242,7 @@ public class RestauranteTest {
                 "Debe lanzarse IOException si el archivo no existe." );
     }
  
-    // -------------------------------------------------------
     // iniciarPedido
-    // -------------------------------------------------------
  
     @Test
     void testIniciarPedidoCreaElPedido( ) throws YaHayUnPedidoEnCursoException
@@ -286,9 +270,7 @@ public class RestauranteTest {
                 "Debe lanzarse YaHayUnPedidoEnCursoException si ya hay un pedido en curso." );
     }
  
-    // -------------------------------------------------------
     // cerrarYGuardarPedido
-    // -------------------------------------------------------
  
     @Test
     void testCerrarPedidoSinPedidoEnCursoLanzaExcepcion( )
@@ -337,9 +319,7 @@ public class RestauranteTest {
                 "El historial debe contener todos los pedidos cerrados." );
     }
  
-    // -------------------------------------------------------
     // Flujo completo de integración
-    // -------------------------------------------------------
  
     @Test
     void testFlujoPedidoConProductos( ) throws HamburguesaException, IOException

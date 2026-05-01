@@ -42,10 +42,32 @@ public class ProductoAjustado implements Producto
     /**
      * Retorna el precio del producto ajustado, que debe ser igual al del producto base, sumándole el precio de los ingredientes adicionales.
      */
+  
+    
+    public void agregarIngrediente(Ingrediente ingrediente) {
+        agregados.add(ingrediente);
+    }
+    
+    
+    public void eliminarIngrediente(Ingrediente ingrediente) {
+        eliminados.add(ingrediente);
+    }
+    
+    public ArrayList<Ingrediente> getAgregados() {
+        return agregados;
+    }
+    
+    public ArrayList<Ingrediente> getEliminados() {
+        return eliminados;
+    }
+    
     @Override
-    public int getPrecio( )
-    {
-        return 0;
+    public int getPrecio() {
+        int precio = productoBase.getPrecio();
+        for (Ingrediente ing : agregados) {
+            precio += ing.getCostoAdicional();
+        }
+        return precio;
     }
 
     /**

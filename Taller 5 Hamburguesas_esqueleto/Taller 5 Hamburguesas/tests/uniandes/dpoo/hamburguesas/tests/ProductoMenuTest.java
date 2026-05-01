@@ -10,10 +10,7 @@ import uniandes.dpoo.hamburguesas.mundo.ProductoAjustado;
 import uniandes.dpoo.hamburguesas.mundo.ProductoMenu;
 
 public class ProductoMenuTest {
-    // ============================================================
-    // Atributos de los escenarios
-    // ============================================================
- 
+
     // Escenario 1: producto ajustado recién creado, sin modificaciones
     private ProductoAjustado sinModificaciones;
  
@@ -24,10 +21,7 @@ public class ProductoMenuTest {
     private ProductoMenu base;
     private ProductoMenu baseCaro;
  
-    // ============================================================
-    // Configuración
-    // ============================================================
- 
+
     @BeforeEach
     void setUp( )
     {
@@ -45,9 +39,7 @@ public class ProductoMenuTest {
         productoCaroAjustado = null;
     }
  
-    // ============================================================
     // Pruebas de getNombre()
-    // ============================================================
  
     @Test
     void testGetNombreMismoQueBase( )
@@ -63,9 +55,7 @@ public class ProductoMenuTest {
                 "El nombre debe coincidir con el del producto base caro." );
     }
  
-    // ============================================================
     // Pruebas de getPrecio()
-    // ============================================================
  
     @Test
     void testGetPrecioSinModificacionesIgualAlBase( )
@@ -85,9 +75,7 @@ public class ProductoMenuTest {
                 "BUG en getPrecio(): debe retornar el precio base (25000)." );
     }
  
-    // ============================================================
     // Pruebas de generarTextoFactura()
-    // ============================================================
  
     @Test
     void testFacturaContieneNombreDelProductoBase( )

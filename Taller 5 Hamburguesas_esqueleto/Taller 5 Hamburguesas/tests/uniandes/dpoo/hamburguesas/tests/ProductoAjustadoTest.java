@@ -11,10 +11,6 @@ import uniandes.dpoo.hamburguesas.mundo.ProductoMenu;
 
 public class ProductoAjustadoTest {
 
-    // ============================================================
-    // Atributos de los escenarios
-    // ============================================================
-
     /** Producto base del menú */
     private ProductoMenu productoBase;
 
@@ -35,13 +31,7 @@ public class ProductoAjustadoTest {
     /** Escenario 4: producto con varios ingredientes agregados y eliminados */
     private ProductoAjustado conVariasModificaciones;
 
-    // ============================================================
-    // Configuración
-    // ============================================================
 
-    /**
-     * Configura los escenarios antes de cada prueba.
-     */
     @BeforeEach
     public void setUp() {
         productoBase = new ProductoMenu("corral", 14000);
@@ -67,9 +57,7 @@ public class ProductoAjustadoTest {
         conVariasModificaciones.eliminarIngrediente(tomate);
     }
 
-    // ============================================================
     // Pruebas de getNombre()
-    // ============================================================
 
     /** El nombre debe ser el mismo que el producto base */
     @Test
@@ -85,9 +73,7 @@ public class ProductoAjustadoTest {
                 "El nombre no debe cambiar al agregar ingredientes");
     }
 
-    // ============================================================
     // Pruebas de getPrecio()
-    // ============================================================
 
     /** Sin modificaciones, el precio debe ser igual al precio base */
     @Test
@@ -119,9 +105,7 @@ public class ProductoAjustadoTest {
                 "El precio debe acumular todos los ingredientes agregados");
     }
 
-    // ============================================================
     // Pruebas de agregarIngrediente() y getAgregados()
-    // ============================================================
 
     /** Sin modificaciones la lista de agregados debe estar vacía */
     @Test
@@ -144,9 +128,7 @@ public class ProductoAjustadoTest {
                 "Deben haber 2 ingredientes agregados");
     }
 
-    // ============================================================
     // Pruebas de eliminarIngrediente() y getEliminados()
-    // ============================================================
 
     /** Sin modificaciones la lista de eliminados debe estar vacía */
     @Test
@@ -169,9 +151,7 @@ public class ProductoAjustadoTest {
                 "Debe haber 1 ingrediente eliminado");
     }
 
-    // ============================================================
     // Pruebas de generarTextoFactura()
-    // ============================================================
 
     /** La factura debe contener el nombre del producto */
     @Test
